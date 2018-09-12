@@ -4,6 +4,13 @@ const serverIp = '35.200.103.250';
 const business = require('./modules/monolithic_code.js');
 const cluster = require('cluster'); // cluster 모듈
 
+/**
+  Code 클래스
+  MicroService Architecture : Code
+  developer - ijgong
+  date - 20180912
+  target git - msa_be_code:develop
+*/
 class code extends require('./server.js') {
   constructor () {
 
