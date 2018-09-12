@@ -127,7 +127,7 @@ function register (method, pathname, params, cb) {
           if (error) {
             response.errorcode = 1;
             response.errormessage = error;
-          } else {  // Redis에 상품 정보 저장 
+          } else {  // Redis에 상품 정보 저장
             // const id = results[1][0].id;
             // redis.set(id, JSON.stringify(params));
           }
