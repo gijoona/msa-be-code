@@ -1,9 +1,9 @@
 'use strict';
 
-const serverIp = '35.200.103.250';
 const business = require('./modules/monolithic_code.js');
 const cluster = require('cluster'); // cluster 모듈
-
+const conf = require('./conf/config').setting;
+// const serverIp = '35.200.103.250';
 /**
   Code 클래스
   MicroService Architecture : Code
@@ -16,12 +16,12 @@ class code extends require('./server.js') {
 
     // 초기화
     super('code',
-      process.argv[2] ? Number(process.argv[2]) : 9060,
+      process.argv[2] ? Number(process.argv[2]) : conf.service.port,
       ['POST/code', 'GET/code', 'PUT/code', 'DELETE/code']
     );
 
     // Distributor 접속
-    this.connectToDistributor(serverIp, 9000, (data) => {
+    this.connectToDistributor(conf.distribute.ip, conf.distribute.port, (data) => {
       console.log("Distributor Notification", data);
     });
   }
